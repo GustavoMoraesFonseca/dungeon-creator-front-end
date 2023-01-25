@@ -1,0 +1,78 @@
+<button
+  mat-raised-button
+  color="primary"
+  (click)="saveMonster()"
+  [disabled]="form.invalid"
+>
+  Salvar
+</button>
+<button
+  mat-raised-button
+  color="warn"
+  (click)="deleteMonster()"
+  [disabled]="form.invalid"
+>
+  Excluir
+</button>
+<mat-dialog-content>
+  <form [formGroup]="form">
+    <table style="overflow-x: auto; white-space: nowrap">
+      <tr>
+        <th>Nome da Criatura:</th>
+        <mat-form-field appearance="outline">
+          <input matInput [formControl]="name" />
+        </mat-form-field>
+      </tr>
+      <tr>
+        <th>Nível da Criatura:</th>
+        <mat-form-field appearance="outline">
+          <input matInput type="number" [formControl]="level" />
+        </mat-form-field>
+      </tr>
+      <tr>
+        <th>Página da Criatura:</th>
+        <mat-form-field appearance="outline">
+          <input matInput type="number" [formControl]="page" />
+        </mat-form-field>
+      </tr>
+      <tr>
+        <th>Bioma da Criatura:</th>
+        <mat-form-field appearance="outline">
+          <mat-select [formControl]="biomeId">
+            <mat-option value="1">Aéreo</mat-option>
+            <mat-option value="2">LCL</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </tr>
+      <tr>
+        <th>Livro:</th>
+        <mat-form-field appearance="outline">
+          <mat-select [formControl]="bookId">
+            <mat-option value="1">Exportação</mat-option>
+            <mat-option value="2">Importação</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </tr>
+      <tr>
+        <th>Existe no Sul:</th>
+        <mat-checkbox [formControl]="existsSouth">Checked</mat-checkbox>
+      </tr>
+      <tr>
+        <th>Existe no Sul:</th>
+        <mat-checkbox [formControl]="existsNorth">Checked</mat-checkbox>
+      </tr>
+      <tr>
+        <th>Existe no Sul:</th>
+        <mat-checkbox [formControl]="existsCenter">Checked</mat-checkbox>
+      </tr>
+      <tr>
+        <th>Existe no Oeste:</th>
+        <mat-checkbox [formControl]="existsWest">Oeste</mat-checkbox>
+      </tr>
+      <tr>
+        <th>Existe no Sul:</th>
+        <mat-checkbox [formControl]="existsEast">Checked</mat-checkbox>
+      </tr>
+    </table>
+  </form>
+</mat-dialog-content>
