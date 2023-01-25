@@ -1,0 +1,14 @@
+<h1 *ngFor="let word of hidenPhrase" style="letter-spacing: 10px;float: left;margin-left: 50px;">
+  {{word}}
+</h1>
+<div style="bottom: 0;position: absolute;">
+  <h1 style="float: left;">Erros cometidos:</h1>
+  <div *ngFor="let letter of lettersNotExistsInPhrase" style="float: left;">
+    <h1 style="letter-spacing: 10px">{{letter}}</h1>
+  </div>
+</div>
+<div style="bottom: 0;position: absolute;">
+  <button mat-raised-button color="primary" *ngFor="let letter of alphabet" (click)="chooseLetter(letter)">
+    {{letter}}
+  </button>
+</div>
