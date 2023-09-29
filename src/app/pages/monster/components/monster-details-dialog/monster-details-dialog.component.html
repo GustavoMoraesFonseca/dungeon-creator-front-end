@@ -1,4 +1,6 @@
+<br>
 <button
+  style="margin-left: 10px;"
   mat-raised-button
   color="primary"
   (click)="saveMonster()"
@@ -7,6 +9,8 @@
   Salvar
 </button>
 <button
+  style="margin-left: 10px;"
+  *ngIf="data.monster.id != 0"
   mat-raised-button
   color="warn"
   (click)="deleteMonster()"
@@ -19,59 +23,93 @@
     <table style="overflow-x: auto; white-space: nowrap">
       <tr>
         <th>Nome da Criatura:</th>
-        <mat-form-field appearance="outline">
-          <input matInput [formControl]="name" />
-        </mat-form-field>
+        <td>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="name" />
+          </mat-form-field>
+        </td>
       </tr>
       <tr>
         <th>Nível da Criatura:</th>
-        <mat-form-field appearance="outline">
-          <input matInput type="number" [formControl]="level" />
-        </mat-form-field>
+        <td>
+          <mat-form-field appearance="outline">
+            <input matInput type="number" formControlName="level" />
+          </mat-form-field>
+        </td>
       </tr>
       <tr>
         <th>Página da Criatura:</th>
-        <mat-form-field appearance="outline">
-          <input matInput type="number" [formControl]="page" />
-        </mat-form-field>
+        <td>
+          <mat-form-field appearance="outline">
+            <input matInput type="number" formControlName="page" />
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <th>Tipo da Criatura:</th>
+        <td>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="monsterTypeId">
+              <mat-option *ngFor="let type of data.monsterTypes" [value]="type.id">
+                {{type.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
       </tr>
       <tr>
         <th>Bioma da Criatura:</th>
-        <mat-form-field appearance="outline">
-          <mat-select [formControl]="biomeId">
-            <mat-option value="1">Aéreo</mat-option>
-            <mat-option value="2">LCL</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <td>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="biomeId">
+              <mat-option *ngFor="let biome of data.biomes" [value]="biome.id">
+                {{biome.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
       </tr>
       <tr>
         <th>Livro:</th>
-        <mat-form-field appearance="outline">
-          <mat-select [formControl]="bookId">
-            <mat-option value="1">Exportação</mat-option>
-            <mat-option value="2">Importação</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <td>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="bookId">
+              <mat-option *ngFor="let book of data.books" [value]="book.id">
+                {{book.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
       </tr>
       <tr>
-        <th>Existe no Sul:</th>
-        <mat-checkbox [formControl]="existsSouth">Checked</mat-checkbox>
+        <th>Norte</th>
+        <td>
+          <mat-checkbox formControlName="existsSouth"></mat-checkbox>
+        </td>
       </tr>
       <tr>
-        <th>Existe no Sul:</th>
-        <mat-checkbox [formControl]="existsNorth">Checked</mat-checkbox>
+        <th>Sul</th>
+        <td>
+          <mat-checkbox formControlName="existsNorth"></mat-checkbox>
+        </td>
       </tr>
       <tr>
-        <th>Existe no Sul:</th>
-        <mat-checkbox [formControl]="existsCenter">Checked</mat-checkbox>
+        <th>Centro</th>
+        <td>
+          <mat-checkbox formControlName="existsCenter"></mat-checkbox>
+        </td>
       </tr>
       <tr>
-        <th>Existe no Oeste:</th>
-        <mat-checkbox [formControl]="existsWest">Oeste</mat-checkbox>
+        <th>Oeste</th>
+        <td>
+          <mat-checkbox formControlName="existsWest"></mat-checkbox>
+        </td>
       </tr>
       <tr>
-        <th>Existe no Sul:</th>
-        <mat-checkbox [formControl]="existsEast">Checked</mat-checkbox>
+        <th>Leste</th>
+        <td>
+          <mat-checkbox formControlName="existsEast"></mat-checkbox>
+        </td>
       </tr>
     </table>
   </form>

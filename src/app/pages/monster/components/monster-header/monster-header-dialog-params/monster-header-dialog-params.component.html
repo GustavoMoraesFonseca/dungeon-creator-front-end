@@ -1,0 +1,67 @@
+<div align="center">
+  <form [formGroup]="form" style="width: 300px;height: 600px;">
+    <p>
+      <mat-form-field>
+        <mat-label>Nível da Criatura</mat-label>
+        <input formControlName="level" type="number" matInput [value]="0">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Nível dos Jogadores</mat-label>
+        <input formControlName="playersLevel" type="number" matInput [value]="0">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Bioma</mat-label>
+        <mat-select disableRipple formControlName="biomeId">
+          <mat-option *ngFor="let biome of data.biomes" [value]="biome.id">
+            {{biome.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Livro</mat-label>
+        <mat-select disableRipple formControlName="bookId">
+          <mat-option *ngFor="let book of data.books" [value]="book.id">
+            {{book.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Tipo da Criatura</mat-label>
+        <mat-select disableRipple formControlName="monsterTypeId">
+          <mat-option *ngFor="let monsterType of data.monsterTypes" [value]="monsterType.id">
+            {{monsterType.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Região</mat-label>
+        <mat-select disableRipple formControlName="region">
+          <mat-option value="all">Qualquer</mat-option>
+          <mat-option value="south">Sul</mat-option>
+          <mat-option value="north">Norte</mat-option>
+          <mat-option value="center">Centro</mat-option>
+          <mat-option value="west">Oeste</mat-option>
+          <mat-option value="east">Leste</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-label>Criatura Aleatória</mat-label>
+      <mat-checkbox formControlName="isRandomMonster"></mat-checkbox>
+    </p>
+  </form>
+  <button mat-raised-button (click)="filterMonstersByParams()">
+    Buscar
+    <mat-icon>search</mat-icon>
+  </button>
+</div>

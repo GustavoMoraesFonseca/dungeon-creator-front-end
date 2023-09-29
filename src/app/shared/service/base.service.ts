@@ -87,11 +87,15 @@ export abstract class BaseService<Model> {
     const statusCode: string = error.status.toString();
     var retorno: Error;
 
-    if (statusCode == '404')
+    if (statusCode == '400')
+      retorno = new Error(error.error.error);
+    else if (statusCode == '404')
       retorno = new Error('Nenhum registro encontrado.');
-    if (statusCode.startsWith('4'))
+    else if (statusCode == '409')
+      retorno = new Error('Registro já cadastrado.');
+    else if (statusCode.startsWith('4'))
       retorno = new Error('Erro do Cliente');
-    if (statusCode.startsWith('5'))
+    else if (statusCode.startsWith('5'))
       retorno = new Error('Erro do Servidor');
 
     return throwError(() => retorno);

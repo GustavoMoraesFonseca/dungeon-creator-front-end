@@ -1,0 +1,27 @@
+<mat-card class="card-gray">
+  <table class="table">
+    <tr>
+      <th>Nome da Criatura</th>
+      <th>Nível da Criatura</th>
+      <th>Existe</th>
+      <th>Podem ser Encontrada</th>
+      <th>Livro</th>
+      <th>Página</th>
+    </tr>
+    <tr *ngFor="let monster of monsters">
+      <td>{{monster.name}}</td>
+      <td>{{monster.level}}</td>
+      <td>
+        <div class="alignContinentName" *ngIf="monster.existsCenter">Centro</div>
+        <div class="alignContinentName" *ngIf="monster.existsEast">Leste</div>
+        <div class="alignContinentName" *ngIf="monster.existsNorth">Norte</div>
+        <div class="alignContinentName" *ngIf="monster.existsSouth">Sul</div>
+        <div class="alignContinentName" *ngIf="monster.existsWest">Oeste</div>
+      </td>
+      <td>{{monster.biomeId}}</td>
+      <td>{{monster.bookId}}</td>
+      <td>{{monster.page}}</td>
+    </tr>
+  </table>
+</mat-card>
+

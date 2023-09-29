@@ -1,0 +1,8 @@
+.alignContinentName {
+  float: left;
+  margin-left: 5px;
+}
+
+.comma:not(:empty):not(:last-child):after {
+  content: ", ";
+}

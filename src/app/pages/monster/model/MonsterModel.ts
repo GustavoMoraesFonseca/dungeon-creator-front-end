@@ -5,6 +5,7 @@ export interface MonsterModel {
   page: number;
   biomeId: number;
   bookId: number;
+  monsterTypeId: number;
   existsSouth: boolean;
   existsNorth: boolean;
   existsCenter: boolean;
